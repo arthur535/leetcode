@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maxArea(vector<int>& vec) {
+        int ans = 0;
+        int i = 0;
+        int j = vec.size()-1;
+        int res = 0;
+        while (i < j) {
+            if (vec[i] <= vec[j]) {
+                res = vec[i] * abs(j - i);
+                i++;
+            } 
+            else {
+                res = vec[j] * abs(j - i);
+                j--;
+            }
+            if (res > ans) 
+            {
+                ans = res;
+            }
+        }
+        return ans;
+    }
+};
