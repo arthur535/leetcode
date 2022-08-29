@@ -1,7 +1,1 @@
-# Leetcode
-
-<hr>
-
-Leetcode problems solution 
-
-<hr>
+# Leetcode Problems Solutions
