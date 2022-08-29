@@ -1,0 +1,37 @@
+class Solution {
+public:
+   ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        int size1 = 0;
+       int size2 = 0;
+        ListNode *currA = headA, *currB = headB;
+        while(currA){
+            currA = currA -> next;
+            size1++;
+        }
+        while(currB) {
+            currB = currB->next;
+            size2++;
+        }
+        
+        int k = abs(size2-size1);
+        if ( size2 > size1 ) {
+            while(k--) {
+                headB = headB -> next;
+            }
+        }
+        else {
+            while(k--) {
+                headA = headA -> next;
+            }
+        }
+        
+        while(headA != headB && headA->next && headB->next ) {
+            headA = headA -> next;
+            headB = headB -> next;
+        }
+
+        if(headA != headB){ return NULL; }
+       
+        return headA;
+    }
+};
