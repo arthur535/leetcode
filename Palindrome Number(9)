@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+    std::string str;
+        if (x < 0) {
+        return false;
+    }
+    while (x != 0) {
+        str += ((char)(x % 10)+'0');
+        x /= 10;
+    }
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] != str[str.size()-1-i]) {
+            return false;
+        }
+    }
+    return true;
+    }
+};
