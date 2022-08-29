@@ -1,0 +1,37 @@
+class Solution {
+public:
+     int hammingWeight(int n) {
+        int count = 0;
+    for(int i = 31; i >= 0; --i){
+        if((n & 1) == 1){
+            count++;
+        }
+        n >>= 1;
+    }
+   return count;
+    }
+    
+    bool is_prime (int num) {
+    bool flag = true;
+    if (num == 0 || num == 1) {
+        flag = false;
+    }
+    for (int i = 2; i <= num/2; ++i) {
+        if (num % i == 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
+    
+    int countPrimeSetBits(int left, int right) {
+        int count = 0;
+        for (int i = left; i <= right; ++i) {
+            if(is_prime(hammingWeight(i))){
+                count++;
+            }
+        }
+        return count;
+    }
+};
