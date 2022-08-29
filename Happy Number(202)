@@ -1,0 +1,21 @@
+class Solution {
+public:
+   map<int, int> terminate;
+    bool isHappy(int n) {
+        int sum = 0;
+        if(n == 1){
+            return true;
+        }
+        while(n != 0){
+            sum += ((n%10)*(n%10));
+            n /= 10;
+        }
+        if(terminate[sum] == 0){
+            terminate[sum]++;
+        } 
+        else{
+            return 0;
+        }
+        return isHappy(sum);
+    }
+};
